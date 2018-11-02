@@ -10,10 +10,24 @@ public class Chromosome {
         cost = 0;
     }
 
-    public ArrayList<City> getPath() {
+    public int getPath() {
 
         int rand = (int)(Math.random()*TestCities.numberOfCities() + 1);
 
+        return 1;
+
+    }
+
+    //should return the distance between two cities
+    //have to know between which two cities
+    //TODO
+    public int calcScore(){
+        int total = 0;
+        for (int i = 0; i < code.length; i++) {
+        }
+
+
+        return cost;
     }
 
     public boolean getCode(){

@@ -56,8 +56,8 @@ public class TestCities {
         return cities.size();
     }
 
-    public static ArrayList<City> getArraylist(){
-        return cities;
-    }
+//    public static ArrayList<City> getArraylist(){
+//        return cities;
+//    }
 
 }
