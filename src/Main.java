@@ -4,5 +4,7 @@ public class Main {
 //        Chromosome chromosome = new Chromosome();
         TestCities test = new TestCities();
 
+        Chromosome hi = new Chromosome();
+        hi.getDistance();
     }
 }

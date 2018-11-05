@@ -18,13 +18,17 @@ public class Population {
         Collections.sort(asList, new Comparator<Chromosome>() {
             @Override
             public int compare(Chromosome o1, Chromosome o2) {
-                return o1.calcScore() - o2.calcScore();
+                return o1.getDistance() - o2.getDistance();
             }
         });
 
         for (int i = 0; i < asList.size(); i++) {
             chromosome[i] = asList.get(i);
         }
+    }
+
+    public void generation(){
+
     }
 
 
