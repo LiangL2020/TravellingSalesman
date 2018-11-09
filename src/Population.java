@@ -13,6 +13,7 @@ public class Population {
             chromosome[i] = new Chromosome();
             chromosome[i].randomizePath();
         }
+        lowestScore = chromosome[0].getDistance();
     }
 
     public void sort(){
