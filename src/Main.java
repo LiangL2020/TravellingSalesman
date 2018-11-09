@@ -1,10 +1,21 @@
 public class Main {
+
     public static void main(String[] args) {
 
-//        Chromosome chromosome = new Chromosome();
-        TestCities test = new TestCities();
+        TestCities cities = new TestCities();
 
-        Chromosome hi = new Chromosome();
-        hi.getDistance();
+        Population population = new Population();
+
+        population.generation();
+
+        while(true) {
+
+            population.generation();
+
+        }
+
     }
+
 }
+
+

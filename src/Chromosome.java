@@ -1,80 +1,75 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class Chromosome {
 
-//    private int cost;
-//    private boolean[] code; //if went to the city then set to true
-//
-//    public Chromosome(){
-//        code = new boolean[TestCities.numberOfCities()];
-//        cost = 0;
-//    }
+    private ArrayList<City> city;
 
-    public ArrayList<City> getPath() {
+    public Chromosome(){
 
-        ArrayList<City> Cities = new ArrayList<>();
-
-        for (int i = 0; i < TestCities.numberOfCities(); i++) {
-
-            Cities.add(TestCities.getCity(i));
-
-        }
-
-        Collections.shuffle(Cities);
-
-        return Cities;
+        city = new ArrayList<>();
 
     }
 
-//    //should return the distance between two cities
-//    //have to know between which two cities
-//    public int calcScore(){
-//        int total = 0;
-//        for (int i = 0; i < code.length; i++) {
-//        }
-//
-//
-//        return cost;
-//    }
+    public Chromosome(ArrayList<City> cities) {
+        city = new ArrayList<>();
+        city.clear();
+        for (int i = 0; i < cities.size(); i++) {
+            city.add(new City(cities.get(i)));
+        }
+    }
 
-//    public boolean getCode(){
-//        for (int i = 0; i < code.length; i++) {
-//            if (code[i])
-//                return true;
-//        }
-//        return false;
-//    }
-//
-//    public int getCost() {
-//        return cost;
-//    }
+    public ArrayList<City> randomizePath() {
+
+       city = TestCities.getCities();
+       Collections.shuffle(city);
+       return city;
+
+    }
+
+    public ArrayList<City> getPathforREAL() {
+
+        return city;
+
+    }
 
     public int getDistance() {
 
-        double cost = 0.0;
+        int k = 0;
+        double d = 0;
 
         for (int i = 0; i < TestCities.numberOfCities(); i++) {
 
-            if(i == TestCities.numberOfCities() - 1)
-                cost += getPath().get(i).distanceTo(getPath().get(0));
-            else if(i < TestCities.numberOfCities() -1)
-                cost += getPath().get(i).distanceTo(getPath().get(i+1));
+            if(i > TestCities.numberOfCities() - 1) {
+                k = 0;
+            } else if(i < TestCities.numberOfCities() - 1){
+                k = i + 1;
+            }
+
+            d += getPathforREAL().get(i).distanceTo(getPathforREAL().get(k));
 
         }
 
-        return (int)cost;
+        return (int) d;
 
     }
+
+    public int setDistance(int hold){ return hold; }
 
     public void mutate(double chance){
+
         double rand = Math.random();
+
         if(rand < chance){
+
             int i = (int)(Math.random()*TestCities.numberOfCities() - 1);
-            City temp = getPath().get(i);
-            getPath().set(i, getPath().get(i+1));
-            getPath().set(i+1, temp);
+            int j = (int)(Math.random()*TestCities.numberOfCities() - 1);
+
+            City temp = getPathforREAL().get(i);
+            getPathforREAL().set(i, getPathforREAL().get(j));
+            getPathforREAL().set(j, temp);
+
         }
     }
-
 }

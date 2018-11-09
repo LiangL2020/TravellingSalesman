@@ -32,7 +32,7 @@ public class TestCities {
         cities.add(new City(750, 587));
     }
 
-    public ArrayList<City> getCities() {
+    public static ArrayList<City> getCities() {
         ArrayList<City> temp = new ArrayList<>();
         for (City c : cities) {
             temp.add(new City(c));
@@ -49,7 +49,7 @@ public class TestCities {
     }
 
     public static City getCity(int index) {
-        return (City) cities.get(index);
+        return (City)cities.get(index);
     }
 
     public static int numberOfCities() {
