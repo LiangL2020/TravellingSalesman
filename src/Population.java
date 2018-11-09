@@ -61,6 +61,7 @@ public class Population {
         if(chromosome[0].getDistance() < 4000) {
             System.out.println(chromosome[0].getPathforREAL());
         }
+
     }
 
 }
